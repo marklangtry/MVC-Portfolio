@@ -64,12 +64,12 @@
 
 <form class='info' action="/users/consent" method="post">
 
-    <span>Your Name:</span>
-    <div id='name' class='input' contenteditable="true">Text Here</div>
-    <span>Your ID Number:</span>
-    <div id="id" class='input' contenteditable="true">Text Here</div>
+    <label for='name'>Name: </label>
+    <input type="text" id='name' class='input' contenteditable="true">
+    <label for="id">ID: </label>
+    <input type="text" id="id" class='input' contenteditable="true">
 
-    <button id="consentButton">I consent.</button>
+    <input type="submit" id="consentButton" value="Consent">
 </form>
 <script src="./script.js"></script>
 </body>
