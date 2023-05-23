@@ -1,31 +1,26 @@
 package portfolio.consent;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.FileWriter;
+import java.io.IOException;
 
 @Controller
-@RequestMapping("/users")
 public class ConsentController {
-    private final UserRepository userRepository;
 
-    @Autowired
-    public ConsentController(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    @PostMapping("/addName")
+    public String consent(@RequestParam("name") String name,@RequestParam("id") int id) {
+        try (FileWriter writer = new FileWriter("portfolio.csv", true)) {
+            writer.append(name);
+            writer.append("\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle exception as per your application's requirements
+        }
 
-    @GetMapping("/consent")
-    public String showUserForm(Model model) {
-        model.addAttribute("user", new User());
-        return "user-form";
-    }
-
-    @PostMapping("/consent")
-    public String createUser(User user) {
-        userRepository.save(user);
-        return "redirect:/users/new";
+        return "redirect:/index"; // Redirect to a success page or another URL
     }
 }
