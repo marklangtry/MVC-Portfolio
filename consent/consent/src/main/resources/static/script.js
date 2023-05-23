@@ -1,10 +1,10 @@
 const nameDiv = document.getElementById('name');
-const idNumDiv = document.getElementById('idNum');
+const idDiv = document.getElementById('id');
 
 nameDiv.addEventListener('click', () => {
     nameDiv.textContent = '';
 });
 
-idNumDiv.addEventListener('click', () => {
-    idNumDiv.textContent = '';
+idDiv.addEventListener('click', () => {
+    idDiv.textContent = '';
 });
