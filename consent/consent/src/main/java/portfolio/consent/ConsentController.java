@@ -7,7 +7,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @Controller
 public class ConsentController {
@@ -16,7 +15,6 @@ public class ConsentController {
     public String consent(@RequestParam("name") String name,@RequestParam("id") int id) throws IOException {
         String filePath = "portfolio.csv";
         FileWriter writer = new FileWriter(filePath, true);
-        System.out.println("Hello");
         String var = name + "," + id;
         writer.append(var);
         writer.append("\n");
