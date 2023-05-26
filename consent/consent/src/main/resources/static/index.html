@@ -6,15 +6,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    <!-- Display the alert message if it exists -->
+    <div th:if="${alertMessage}" class="alert alert-danger">
+        <p th:text="${alertMessage}"></p>
+    </div>
+    
+    <!-- Login form and other content -->
 <h1>Login</h1>
 
-<form class='info' action="/users/consent" method="post">
+<form class='info' action="/login" method="post">
 
-    <label for='username'>Username: </label>
-    <input type="text" id='username' class='input' contenteditable="true">
+    <label for='user'>Username: </label>
+    <input type="text" id='user' name="user" class='input' contenteditable="true">
     <label for="password">Password: </label>
-    <input type="text" id="password" class='input' contenteditable="true">
+    <input type="password" id="password"name="password" class='input' contenteditable="true">
 
     <input type="submit" id="loginButton" value="Login">
 </form>
