@@ -2,6 +2,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #02315E;
+    color: white;
 }
 
 input {
@@ -15,11 +17,17 @@ form {
     gap: 10px 0;
 }
 
-#loginButton {
-    background-color: aquamarine;
+#loginButton, #submitButton {
+    background-color: #2F70AF;
     border: 0;
     font-size: 20px;
     padding: 10px 20px;
     border-radius: 10px;
     font-weight: bold;
+}
+
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
