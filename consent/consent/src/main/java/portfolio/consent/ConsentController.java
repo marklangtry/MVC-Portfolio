@@ -11,16 +11,14 @@ import java.io.IOException;
 @Controller
 public class ConsentController {
 
-    @PostMapping("/addName")
-    public String consent(@RequestParam("name") String name,@RequestParam("id") int id) {
-        try (FileWriter writer = new FileWriter("portfolio.csv", true)) {
-            writer.append(name);
-            writer.append("\n");
-        } catch (IOException e) {
-            e.printStackTrace();
-            // Handle exception as per your application's requirements
-        }
-
-        return "redirect:/index"; // Redirect to a success page or another URL
+    @PostMapping("/consent")
+    public String consent(@RequestParam("name") String name,@RequestParam("id") int id) throws IOException {
+        String filePath = "portfolio.csv";
+        FileWriter writer = new FileWriter(filePath, true);
+        String var = name + "," + id;
+        writer.append(var);
+        writer.append("\n");
+        writer.close();
+        return "redirect:/success.html"; // Redirect to a success page or another URL
     }
 }
