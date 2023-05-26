@@ -6,12 +6,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Display the alert message if it exists -->
-    <div th:if="${alertMessage}" class="alert alert-danger">
-        <p th:text="${alertMessage}"></p>
-    </div>
-    
-    <!-- Login form and other content -->
 <h1>Login</h1>
 
 <form class='info' action="/login" method="post">

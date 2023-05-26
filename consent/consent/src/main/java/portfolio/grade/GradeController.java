@@ -1,4 +1,4 @@
-package portfolio.consent;
+package portfolio.grade;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,12 +9,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 @Controller
-public class ConsentController {
+public class GradeController {
     @PostMapping("/grades")
     public String grades(@RequestParam("id") int id,@RequestParam("grade1") int grade1,@RequestParam("grade2") int grade2) throws IOException {
         String filePath = "portfolio.csv";
         FileWriter writer = new FileWriter(filePath, true);
-        String var = id + "," + grade1 + "," + grade2;
+        int score = (grade1 + grade2) / 3;
+        String var = id + "," + grade1 + "," + grade2 + "," + score + "%";
         writer.append(var);
         writer.append("\n");
         writer.close();
