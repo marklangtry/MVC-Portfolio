@@ -23,12 +23,11 @@ public class GradeController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam("user") String user,@RequestParam("password") String password, RedirectAttributes redirectAttributes) throws IOException {
+    public String login(@RequestParam("user") String user,@RequestParam("password") String password) throws IOException {
         if((user.equals("admin")) && (password.equals("incorrect"))){
-            return "redirect:/grades.html"; // Redirect to a success page or another URL
+            return "redirect:/grade.html"; // Redirect to a success page or another URL
         }
         else{
-            redirectAttributes.addFlashAttribute("alertMessage", "Invalid credentials! Please try again.");
             return "redirect:/index.html"; // Redirect to the login page or another URL
         }
         
